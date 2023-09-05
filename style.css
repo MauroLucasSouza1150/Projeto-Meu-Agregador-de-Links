@@ -27,6 +27,7 @@
 body {
     /* ShortHand Background = Color, Image, repeat, Position/size*/
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 
 #container {
@@ -72,11 +73,16 @@ body * {
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
+
+    animation: slide-back .2s;
 }
 
 .light #switch button {
-    left: initial;
-    right: 0;
+    animation: slide-in .3s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color)
 }
 
 #switch span {
@@ -150,4 +156,23 @@ footer {
 
 footer a {
     text-decoration: none;
+}
+
+/* Animation */
+@keyframes slide-in {
+    form {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    form {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
 }
